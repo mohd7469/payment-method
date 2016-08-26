@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title></title>
+    <script src="jquery.min.js"></script>
+    <style>
+        .hide{
+            display: none;
+        }
+        .shoe{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<p>Sunday school info... TEST</p>
+<p>&nbsp;</p>
+<p>Test payment</p>
+<p><strong>Assalamu alikum,</strong></p>
+<p><strong>The payment options below are for those kids only who are registered. Please do not pay if you have not received an e-mail from Masjid Al-Noor (ISM Brookfield) Sunday school staff. For all other sunday schools please contact their staff. If you pay without your child already registered then any refunds will be with deduction of PaylPal fees.</strong></p>
+<p><strong>Please choose the appropriate payment option below according to the number of registered children in your household. Thank you</strong></p>
+<p>&nbsp;</p>
+<select id="selectMethod" onchange="selectedMethod()">
+    <option selected disabled hidden>Choose Method</option>
+    <option>Method-1</option>
+    <option>Method-2</option>
+    <option>Method-3</option>
+    <option>Method-4</option>
+</select>
+<span id="demo"></span>
+<p><b>************************************************************</b></p>
+<p>&nbsp;</p>
+<p><strong id="content"></strong></p>
+<div class="form">
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="cmd" value="_s-xclick" /> <input type="hidden" name="hosted_button_id" value="DARM7ABHY582E" /> <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" alt="PayPal - The safer, easier way to pay online!" /> <img src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" alt="" height="1" width="1" border="0" />1</form>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="cmd" value="_s-xclick" /> <input type="hidden" name="hosted_button_id" value="K5LMEGJ3743VA" /> <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" alt="PayPal - The safer, easier way to pay online!" /> <img src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" alt="" height="1" width="1" border="0" />2</form>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="cmd" value="_s-xclick" /> <input type="hidden" name="hosted_button_id" value="AGKG6JKEFMWTA" /> <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" alt="PayPal - The safer, easier way to pay online!" /> <img src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" alt="" height="1" width="1" border="0" />3</form>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="cmd" value="_s-xclick" /> <input type="hidden" name="hosted_button_id" value="GQPFWP2M7C76E" /> <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" alt="PayPal - The safer, easier way to pay online!" /> <img src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" alt="" height="1" width="1" border="0" />4</form>
+</div>
+<p>&nbsp;</p>
+<p><b>************************************************************</b></p>
+<script>
+    var p = $("p + form"); //target a form
+    var content = $("form").addClass("hide");
+    function selectedMethod() {
+        var x = document.getElementById("selectMethod");
+        var i = x.selectedIndex;
+        var text = "Household with " + i + " registered child:";
+        console.log(i);
+        document.getElementById("demo").innerHTML = text;
+        $( "div.form>form").eq(--i).removeClass('hide').siblings().addClass('hide');
+    }
+</script>
+</body>
+</html>
